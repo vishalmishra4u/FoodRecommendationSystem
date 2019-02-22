@@ -1,0 +1,24 @@
+{
+  "name": "foodrecommendationapp",
+  "version": "1.0.0",
+  "description": "Express/Node.js App for Food recommendation along with JWT authentication.",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vishalmishra4u/FoodRecommendationSystem.git"
+  },
+  "author": "Vishal Mishra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vishalmishra4u/FoodRecommendationSystem/issues"
+  },
+  "homepage": "https://github.com/vishalmishra4u/FoodRecommendationSystem#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.14"
+  }
+}
