@@ -1,4 +1,4 @@
-var User = require('./../user/UserController');
+var User = require('./../user/userController');
 
 module.exports = function(router) {
     router.post('/createUser', User.createUser);

@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
-var userSchema = require('./userModel');
+var foodSchema = require('./foodModel');
 
-userSchema.statics = {
+foodSchema.statics = {
     create : function(data, cb) {
-        var user = new this(data);
-        user.save(cb);
+        var food = new this(data);
+        food.save(cb);
     },
 
     get: function(query, cb) {
@@ -20,5 +20,5 @@ userSchema.statics = {
     }
 }
 
-var userModel = mongoose.model('User', userSchema);
-module.exports = userModel;
+var foodModel = mongoose.model('Food', foodSchema);
+module.exports = foodModel;

@@ -1,4 +1,4 @@
-var User = require('./UserDAO');
+var User = require('./userDAO');
 
 module.exports = {
   createUser : createUser,

@@ -5,7 +5,10 @@ var app = express();
 var bodyParser = require('body-parser');
 
 //User routes
-var userRoutes = require('./routes/UserRoutes');
+var userRoutes = require('./routes/userRoutes');
+
+//Food routes
+var foodRoutes = require('./routes/foodRoutes');
 
 // call the database connectivity function
 db();
@@ -33,6 +36,8 @@ app.use(function(req, res, next) {
 app.use('/api',router);
 //call user routing
 userRoutes(router);
+
+foodRoutes(router);
 
 app.listen(properties.PORT, (req, res) => {
     console.log(`Server is running on ${properties.PORT} port.`);
