@@ -51,21 +51,21 @@ function getUser(req, res, next) {
         }
         res.json({
             user: user
-        })
+        });
     })
 }
 
 function loginUser(req, res, next) {
-    User.get({name: req.params.name}, function(err, user) {
+    User.get({name: req.query.name}, function(err, user) {
         if(err) {
             res.json({
                 error: err
-            })
+            });
         }
-
         res.json({
-            authenticationService.getAuthenticatedResponse(user);
-        })
+          user : authenticationService.getAuthenticatedResponse(user).user[0],
+          token : authenticationService.getAuthenticatedResponse(user).token
+        });
     });
 }
 

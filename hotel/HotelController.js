@@ -5,7 +5,8 @@ module.exports = {
   getHotels : getHotels,
   getHotel : getHotel,
   updateHotel : updateHotel,
-  deleteHotel : deleteHotel
+  deleteHotel : deleteHotel,
+  getHotelStaff : getHotelStaff
 };
 
 function createHotel(req, res, next) {
@@ -82,4 +83,8 @@ function deleteHotel(req, res, next) {
             message : "Hotel deleted successfully"
         })
     })
+}
+
+function getHotelStaff(req, res, next){
+    
 }

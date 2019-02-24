@@ -14,24 +14,23 @@ function generateToken(user) {
   }
   // generate a user id and authenticate
   var payload = {
-    userInfo: user.id
+    userInfo: user._id
   };
   // return token and user information with a refresh token
-  var options = {expiresIn: '1h'};
-  var secret = ${properties.SECRET};
+  var options = {expiresIn: '6h'};
+  var secret = `${properties.SECRET}`;
 
   return jwt.sign(payload, secret, options);
 }
 
 function getAuthenticatedResponse(user) {
-
   if (!user) {
     return null;
   }
 
   return {
     user: user,
-    token: AuthenticationService.generateToken(user)
+    token: generateToken(user[0])
   };
 }
 
@@ -41,7 +40,8 @@ function validateToken(authToken) {
     // validate the token
     try {
       // decode the token
-      authPayload = jwt.verify(authToken, secret);
+      authPayload = jwt.verify(authToken, `${properties.SECRET}`);
+      console.log('authPayload---',authPayload);
     } catch (err) {
       console.error('AuthenticationService#validateToken :: Error while ' +
         'verifying the token :: ', err);
