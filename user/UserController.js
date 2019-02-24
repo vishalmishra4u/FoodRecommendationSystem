@@ -1,9 +1,11 @@
-var User = require('./userDAO');
+var User = require('./userDAO'),
+  authenticationService = require('./../AuthenticationService');
 
 module.exports = {
   createUser : createUser,
   getUsers : getUsers,
   getUser : getUser,
+  loginUser : loginUser,
   updateUser : updateUser,
   deleteUser : deleteUser
 };
@@ -20,9 +22,10 @@ function createUser(req, res, next) {
                 error : err
             })
         }
+
         res.json({
             message : "User created successfully"
-        })
+        });
     })
 }
 
@@ -50,6 +53,20 @@ function getUser(req, res, next) {
             user: user
         })
     })
+}
+
+function loginUser(req, res, next) {
+    User.get({name: req.params.name}, function(err, user) {
+        if(err) {
+            res.json({
+                error: err
+            })
+        }
+
+        res.json({
+            authenticationService.getAuthenticatedResponse(user);
+        })
+    });
 }
 
 function updateUser(req, res, next) {

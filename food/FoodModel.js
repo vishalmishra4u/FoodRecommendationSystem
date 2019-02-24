@@ -20,6 +20,10 @@ var foodSchema = new Schema({
       type: Number,
       unique : false,
       required : true
+    },
+    hotel : {
+      type: Schema.Types.ObjectId,
+      ref : 'Hotel'
     }
 }, {
     timestamps: true

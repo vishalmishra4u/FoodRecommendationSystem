@@ -6,7 +6,7 @@ var hotelSchema = new Schema({
         unique : false,
         required : true
     },
-    location : {
+    city : {
         type: String,
         unique : false,
         required : true
@@ -15,7 +15,15 @@ var hotelSchema = new Schema({
         type : Number,
         unique : false,
         required : true
-    }
+    },
+    users : [{
+      type: Schema.Types.ObjectId,
+      ref : 'User'
+    }],
+    foods : [{
+      type: Schema.Types.ObjectId,
+      ref : 'Food'
+    }]
 }, {
     timestamps: true
 });
