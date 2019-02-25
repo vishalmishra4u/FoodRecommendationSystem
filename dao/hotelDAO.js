@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
-var foodSchema = require('./foodModel');
+var hotelSchema = require('./../models/hotel');
 
-foodSchema.statics = {
+hotelSchema.statics = {
     create : function(data, cb) {
-        var food = new this(data);
-        food.save(cb);
+        var hotel = new this(data);
+        hotel.save(cb);
     },
 
     get: function(query, cb) {
@@ -20,5 +20,5 @@ foodSchema.statics = {
     }
 }
 
-var foodModel = mongoose.model('Food', foodSchema);
-module.exports = foodModel;
+var hotelModel = mongoose.model('Hotel', hotelSchema);
+module.exports = hotelModel;

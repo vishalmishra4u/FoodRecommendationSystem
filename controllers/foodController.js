@@ -1,4 +1,4 @@
-var Food = require('./foodDAO'),
+var Food = require('./../dao/foodDAO'),
   authenticationService = require('./../AuthenticationService');
 
 module.exports = {

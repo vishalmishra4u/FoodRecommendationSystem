@@ -1,4 +1,4 @@
-var Food = require('./../food/foodController');
+var Food = require('./../controllers/foodController');
 
 module.exports = function(router) {
     router.post('/createFood', Food.createFood);

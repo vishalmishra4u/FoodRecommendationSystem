@@ -1,4 +1,4 @@
-var Hotel = require('./../hotel/hotelController');
+var Hotel = require('./../controllers/hotelController');
 
 module.exports = function(router) {
     router.post('/createHotel', Hotel.createHotel);

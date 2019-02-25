@@ -1,4 +1,4 @@
-var User = require('./userDAO'),
+var User = require('./../dao/userDAO'),
   authenticationService = require('./../AuthenticationService');
 
 module.exports = {
@@ -22,9 +22,13 @@ function createUser(req, res, next) {
                 error : err
             })
         }
-
+        var userDetails = {
+          name : user.name,
+          emailId : user.emailId
+        };
         res.json({
-            message : "User created successfully"
+            message : "User created successfully",
+            user : userDetails
         });
     })
 }

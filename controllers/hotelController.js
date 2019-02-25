@@ -1,4 +1,4 @@
-var Hotel = require('./hotelDAO');
+var Hotel = require('./../dao/hotelDAO');
 
 module.exports = {
   createHotel : createHotel,
@@ -22,10 +22,17 @@ function createHotel(req, res, next) {
                 error : err
             });
         }
+        var hotelDetails = {
+          id: hotel._id,
+          name : hotel.name,
+          city : hotel.city,
+          rating : hotel.rating
+        };
         res.json({
-            message : "Hotel created successfully"
+            message : "Hotel created successfully",
+            hotel : hotelDetails
         });
-    })
+    });
 }
 
 function getHotels(req, res, next) {
@@ -38,7 +45,7 @@ function getHotels(req, res, next) {
         res.json({
             hotels: hotels
         });
-    })
+    });
 }
 
 function getHotel(req, res, next) {
@@ -50,8 +57,8 @@ function getHotel(req, res, next) {
         }
         res.json({
             hotel: hotel
-        })
-    })
+        });
+    });
 }
 
 function updateHotel(req, res, next) {
@@ -68,8 +75,8 @@ function updateHotel(req, res, next) {
         }
         res.json({
             message : "Hotel updated successfully"
-        })
-    })
+        });
+    });
 }
 
 function deleteHotel(req, res, next) {
@@ -77,14 +84,27 @@ function deleteHotel(req, res, next) {
         if(err) {
             res.json({
                 error : err
-            })
+            });
         }
         res.json({
             message : "Hotel deleted successfully"
-        })
-    })
+        });
+    });
 }
 
 function getHotelStaff(req, res, next){
-    
+    Hotel.get({name: req.params.name}, function(err, hotel) {
+        if(err) {
+            res.json({
+                error: err
+            });
+        }
+        var hotelStaff = [];
+        hotel.users.forEach(function(staff){
+          hotelStaff.push(staff);
+        });
+        res.json({
+            staff: hotelStaff
+        });
+    });
 }

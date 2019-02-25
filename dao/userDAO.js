@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var userSchema = require('./userModel');
+var userSchema = require('./../models/user');
 
 userSchema.statics = {
     create : function(data, cb) {

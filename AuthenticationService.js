@@ -41,7 +41,6 @@ function validateToken(authToken) {
     try {
       // decode the token
       authPayload = jwt.verify(authToken, `${properties.SECRET}`);
-      console.log('authPayload---',authPayload);
     } catch (err) {
       console.error('AuthenticationService#validateToken :: Error while ' +
         'verifying the token :: ', err);
