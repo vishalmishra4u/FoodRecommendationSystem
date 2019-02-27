@@ -21,9 +21,9 @@ var foodSchema = new Schema({
       unique : false,
       required : true
     },
-    hotel : {
+    foodManual : {
       type: Schema.Types.ObjectId,
-      ref : 'Hotel'
+      ref: 'foodManual'
     }
 }, {
     timestamps: true
