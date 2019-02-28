@@ -2,14 +2,14 @@
 Express/Node.js App for Food recommendation along with JWT authentication.
 
 ### Prerequisites
-Node.js Must be installed . 
-Mongodb must be installed . 
+Node.js Must be installed .<br/> 
+Mongodb must be installed .<br/> 
 
 ### Setup project
-Download project in a directory . 
-Go to the project directory in command prompt . 
+Download project in a directory .<br/>
+Go to the project directory in command prompt .<br/> 
 
-Run :   
-npm install . 
+Run :<br/>
+npm install .<br/>
 node server.js . 
 
