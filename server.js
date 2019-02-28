@@ -10,6 +10,9 @@ var userRoutes = require('./routes/userRoutes');
 //Food routes
 var foodRoutes = require('./routes/foodRoutes');
 
+//Food Manual routes
+var foodManualRoutes = require('./routes/foodManualRoutes');
+
 // call the database connectivity function
 db();
 
@@ -38,6 +41,8 @@ app.use('/api',router);
 userRoutes(router);
 
 foodRoutes(router);
+
+foodManualRoutes(router);
 
 app.listen(properties.PORT, (req, res) => {
     console.log(`Server is running on ${properties.PORT} port.`);

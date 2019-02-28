@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 var foodManualSchema = require('./../models/foodManual');
 
-userSchema.statics = {
+foodManualSchema.statics = {
     create : function(data, cb) {
         var foodManual = new this(data);
-        user.save(cb);
+        foodManual.save(cb);
     },
 
     get: function(query, cb) {

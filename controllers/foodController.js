@@ -21,7 +21,8 @@ function createFood(req, res, next) {
         name: req.body.name,
         typeOfFood: req.body.typeOfFood,
         cuisine : req.body.cuisine,
-        price : req.body.price
+        price : req.body.price,
+        foodManual : req.body.foodManual
     };
 
     Food.create(food, function(err, food) {
@@ -31,7 +32,8 @@ function createFood(req, res, next) {
             })
         }
         res.json({
-            message : "Food created successfully"
+            message : "Food created successfully",
+            food : food
         })
     })
 }
@@ -71,7 +73,7 @@ function getFood(req, res, next) {
             })
         }
         res.json({
-            food: food
+            food: food[0]
         })
     })
 }
@@ -98,7 +100,8 @@ function updateFood(req, res, next) {
             })
         }
         res.json({
-            message : "Food updated successfully"
+            message : "Food updated successfully",
+            food : food
         })
     })
 }
